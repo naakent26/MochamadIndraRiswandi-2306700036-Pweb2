@@ -1,0 +1,129 @@
+body { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+:root{
+  --bg0:#0b0b10;
+  --bg1:#07070b;
+  --surface:#11111a;
+  --surface2:#161625;
+  --stroke: rgba(255,255,255,.10);
+  --text:#f6f7ff;
+  --muted: rgba(246,247,255,.70);
+  --muted2: rgba(246,247,255,.45);
+  --purple1:#7c3aed;
+  --purple2:#5b21b6;
+  --purple3:#a78bfa;
+  --good:#10b981;
+  --bad:#ef4444;
+  --warn:#f59e0b;
+}
+
+.app-body{
+  background:
+    radial-gradient(900px 450px at 20% 10%, rgba(124,58,237,.25), transparent 60%),
+    radial-gradient(900px 450px at 85% 30%, rgba(167,139,250,.18), transparent 60%),
+    linear-gradient(180deg, #0b0b10, #07070b);
+  color: var(--text);
+}
+
+.app-header{ background: rgba(8,8,12,.65); }
+.app-hero{
+  background:
+    radial-gradient(700px 300px at 20% 20%, rgba(124,58,237,.25), transparent 60%),
+    radial-gradient(700px 300px at 80% 10%, rgba(167,139,250,.18), transparent 60%),
+    rgba(255,255,255,.02);
+}
+
+.app-logo, .app-logo-sm{
+  background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(167,139,250,.6));
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.auth-tabs{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.product-card{
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--surface), var(--surface2));
+  border: 1px solid var(--stroke);
+}
+.product-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  border-color: rgba(167,139,250,.35);
+}
+
+.btn-primary{
+  background: linear-gradient(135deg, var(--purple1) 0%, var(--purple2) 100%);
+  transition: all .22s ease;
+}
+.btn-primary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(124,58,237,0.35);
+}
+
+.btn-secondary{
+  background: transparent;
+  border: 2px solid rgba(167,139,250,.35);
+  color: var(--text);
+  transition: all .22s ease;
+}
+.btn-secondary:hover{
+  border-color: rgba(167,139,250,.7);
+  background: rgba(124,58,237,.12);
+}
+
+.brand-tab{ transition: all .22s ease; border: 1px solid rgba(255,255,255,.10); }
+.brand-tab.active{
+  background: linear-gradient(135deg, var(--purple1) 0%, #12121b 100%);
+  color: var(--text);
+  border-color: rgba(167,139,250,.35);
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in{ animation: fadeIn .4s ease forwards; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.slide-in{ animation: slideIn .3s ease forwards; }
+.cart-badge{ animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+.input-dark{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text);
+}
+.input-dark::placeholder{ color: rgba(246,247,255,.45); }
+.input-dark:focus{
+  outline: none;
+  border-color: rgba(167,139,250,.55);
+  box-shadow: 0 0 0 3px rgba(124,58,237,.25);
+}
+
+.modal-surface{
+  background: linear-gradient(180deg, var(--surface), var(--surface2));
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.pill{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: rgba(246,247,255,.80);
+}
+.pill.active{
+  border-color: rgba(167,139,250,.45);
+  background: rgba(124,58,237,.15);
+  color: rgba(246,247,255,.95);
+}
+/* iPhone safe area */
+body{
+  padding-bottom: env(safe-area-inset-bottom);
+}
+body {
+  opacity: 1 !important;
+  filter: none !important;
+}
