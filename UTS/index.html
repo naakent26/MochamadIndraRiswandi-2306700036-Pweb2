@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="noise"></div>
+
+  <header>
+    <div class="brand">
+      <span class="brand-icon">🎬</span>
+      <div>
+        <h1 class="brand-title">MOVIE<span>EXPLORER</span></h1>
+        <p class="brand-sub">Powered by TMDB</p>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Cari judul film..." autocomplete="off" />
+      <button id="searchBtn">Cari</button>
+      <button id="clearBtn" class="clear-btn">X</button>
+    </div>
+  </header>
+
+  <nav class="tab-nav">
+    <button class="tab active" data-category="now_playing">Now Playing</button>
+    <button class="tab" data-category="popular">Popular</button>
+    <button class="tab" data-category="top_rated">Top Rated</button>
+    <button class="tab" data-category="upcoming">Upcoming</button>
+  </nav>
+
+  <main>
+    <div id="statusBar" class="status-bar hidden">
+      <span id="statusText"></span>
+    </div>
+
+    <div id="errorBox" class="error-box hidden">
+      <div class="error-icon">!</div>
+      <div class="error-body">
+        <strong>Gagal memuat data!</strong>
+        <p id="errorMsg">Terjadi kesalahan saat mengambil data dari API.</p>
+      </div>
+      <button onclick="fetchMovies()">Coba Lagi</button>
+    </div>
+
+    <div id="loading" class="loading-state">
+      <div class="film-strip">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p>Mengambil data film...</p>
+    </div>
+
+    <div id="grid" class="movie-grid hidden"></div>
+
+    <div id="emptyState" class="empty-state hidden">
+      <span>Film tidak ditemukan.</span>
+      <button onclick="resetSearch()">Kembali ke daftar</button>
+    </div>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">X</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
